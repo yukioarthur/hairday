@@ -33,4 +33,5 @@ O teste cobre cadastro, bloqueio de horário ocupado, troca de data, exclusão e
 - O build de produção passou com dependências disponíveis localmente. O acesso ao registry do npm falhou com `ENOTFOUND`, então a instalação limpa e a geração do lockfile seguem pendentes.
 - Dois cenários passaram com a suíte local do Playwright no Chrome. Como o ambiente isolado bloqueou a conexão com o servidor de desenvolvimento, a verificação serviu os arquivos de `dist` por interceptação das requisições no navegador.
 - [Captura desktop](docs/desktop.png) e [captura mobile](docs/mobile.png).
-- A conferência do board no Notion e as evidências do Context7 MCP e do Playwright MCP seguem pendentes.
+- Em 15/11/2026, o Playwright MCP acessou diretamente `http://localhost:5173/` e validou cadastro às 13h, filtro por outra data, retorno e exclusão. Resultados e limites em [docs/evidencias-mcp.md](docs/evidencias-mcp.md). O build foi executado novamente e passou; o console do navegador registrou 404 do favicon.
+- A conferência do board no Notion e as evidências do Context7 MCP seguem pendentes.
