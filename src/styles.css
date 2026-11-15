@@ -1,0 +1,39 @@
+* { box-sizing: border-box; }
+:root { font-family: Inter, system-ui, sans-serif; color: #f5f4f5; background: #151515; color-scheme: dark; }
+body { margin: 0; }
+.layout { display: grid; grid-template-columns: minmax(320px, 410px) minmax(0, 1fr); min-height: 100vh; }
+aside { background: #202020; padding: 32px; }
+main { padding: 64px clamp(24px, 6vw, 96px); }
+.brand { display: flex; gap: 8px; align-items: center; color: #d9a83b; font-weight: 800; margin-bottom: 40px; }
+h1, h2, h3, p { margin: 0; }
+h1, h2 { font-size: 1.55rem; }
+p, .period header span, .slot-group > span { color: #b9b7bd; }
+h1 + p, h2 + p { margin-top: 8px; }
+form { display: grid; gap: 24px; margin-top: 24px; }
+label { display: grid; gap: 8px; font-weight: 600; }
+input, button { font: inherit; border: 1px solid #414043; border-radius: 8px; background: #242424; color: inherit; min-height: 44px; padding: 8px 12px; }
+input { width: 100%; min-width: 0; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid #edbf57; outline-offset: 2px; }
+button:disabled { opacity: .45; cursor: default; }
+button[aria-pressed="true"] { border-color: #edbf57; color: #edbf57; }
+fieldset { padding: 0; margin: 0; border: 0; min-width: 0; }
+legend { font-weight: 600; padding: 0; }
+.slot-group { margin-top: 12px; }
+.slots { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.slots button { padding-inline: 9px; font-size: .875rem; }
+.submit { background: #d9a83b; color: #18140d; font-weight: 800; border: 0; }
+.agenda-heading { display: flex; flex-wrap: wrap; gap: 20px; align-items: end; justify-content: space-between; margin-bottom: 28px; }
+.period { border: 1px solid #353436; border-radius: 10px; margin-bottom: 12px; }
+.period header { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #353436; }
+.period header, .period > p { padding: 14px 18px; }
+.period h3 { font-size: 1rem; }
+.period ul { list-style: none; margin: 0; padding: 0 18px; }
+.period li { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 6px 0; overflow-wrap: anywhere; }
+.period li + li { border-top: 1px solid #353436; }
+.period li button { color: #edbf57; border: 0; background: transparent; }
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+  aside, main { padding: 24px; }
+  .brand { margin-bottom: 24px; }
+}
