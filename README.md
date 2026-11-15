@@ -26,4 +26,11 @@ O teste cobre cadastro, bloqueio de horário ocupado, troca de data, exclusão e
 - `AppointmentProvider` usa `useState` para guardar os agendamentos e os compartilha pela Context API. O estado dura enquanto a página está aberta.
 - `BookingForm` e `PeriodList` recebem dados e callbacks por Props.
 - `filter` seleciona o dia, `reduce` agrupa os registros por período e `map` renderiza horários e agendamentos.
-- O layout atual é provisório. A conferência com o Figma oficial, as capturas e as evidências do Context7 MCP e Playwright MCP estão pendentes.
+- A referência de layout exportada do Figma está em [docs/hairy day.svg](docs/hairy%20day.svg).
+
+## Validação local
+
+- O build de produção passou com dependências disponíveis localmente. O acesso ao registry do npm falhou com `ENOTFOUND`, então a instalação limpa e a geração do lockfile seguem pendentes.
+- Dois cenários passaram com a suíte local do Playwright no Chrome. Como o ambiente isolado bloqueou a conexão com o servidor de desenvolvimento, a verificação serviu os arquivos de `dist` por interceptação das requisições no navegador.
+- [Captura desktop](docs/desktop.png) e [captura mobile](docs/mobile.png).
+- A conferência do board no Notion e as evidências do Context7 MCP e do Playwright MCP seguem pendentes.
