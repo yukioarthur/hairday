@@ -31,3 +31,12 @@ Esta execução cobre o fluxo acima no viewport informado. Mobile, navegação p
 ## Compilação
 
 `npm.cmd run build` passou (`tsc --noEmit && vite build`, Vite 7.3.7, 1943 módulos transformados). A primeira tentativa foi bloqueada por acesso negado do esbuild no isolamento; a repetição autorizada fora do isolamento concluiu com código 0.
+
+## Context7 MCP
+
+Consultas executadas em 15/11/2026. A chamada `resolve_library_id` buscou `React` com a consulta «Official React documentation useState, createContext and useContext». O retorno identificou `/reactjs/react.dev` como o site oficial de documentação.
+
+| Chamada `query_docs` para `/reactjs/react.dev` | Retorno resumido | Referência retornada |
+| --- | --- | --- |
+| How does React useState accept a functional updater based on previous state for immutable array updates? | O setter aceita uma função pura que recebe o estado pendente e calcula o próximo. O exemplo cria um novo array com espalhamento. No HairDay, o Provider usa esse formato para adicionar e remover registros. | [useState](https://github.com/reactjs/react.dev/blob/main/src/content/reference/react/useState.md) |
+| How do createContext, a context Provider, and useContext work together to share state with descendant components? | `createContext` cria o contexto, o Provider fornece seu valor e `useContext` lê o valor do Provider correspondente mais próximo acima na árvore. O HairDay disponibiliza agenda, cadastro e exclusão por meio de `AppointmentProvider` e `useAppointments`. | [createContext](https://github.com/reactjs/react.dev/blob/main/src/content/reference/react/createContext.md) e [useContext](https://github.com/reactjs/react.dev/blob/main/src/content/reference/react/useContext.md) |
