@@ -2,6 +2,12 @@
 
 Agenda de salão em React, TypeScript e Vite, com CSS responsivo. O formulário cadastra atendimentos por cliente, data e horário. A agenda filtra por data, agrupa por período e permite excluir cada atendimento.
 
+
+
+Teste: 
+<img src="tests/hairday%20localhost.png" alt="Preview do HairDay" width="700" />
+
+
 ## Executar
 
 Use Node.js 22.12 ou superior.
