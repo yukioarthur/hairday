@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Scissors, Trash2 } from 'lucide-react';
+import { Moon, Scissors, Sun, Sunrise, Trash2 } from 'lucide-react';
 import { AppointmentProvider, hourLabel, periods, slots, useAppointments, type Appointment } from './appointments';
 
 function today() {
@@ -59,8 +59,9 @@ function BookingForm({ date, onDateChange }: { date: string; onDateChange: (date
 function PeriodList({ period, entries, onRemove }: {
   period: typeof periods[number]; entries: Appointment[]; onRemove: (id: string) => void;
 }) {
+  const PeriodIcon = { Manhã: Sunrise, Tarde: Sun, Noite: Moon }[period.name];
   return <section className="period">
-    <header><h3>{period.name}</h3><span>{hourLabel(period.start)} – {hourLabel(period.end)}</span></header>
+    <header><h3><PeriodIcon size={20} aria-hidden="true" />{period.name}</h3><span>{hourLabel(period.start)} – {hourLabel(period.end)}</span></header>
     {entries.length ? <ul>{entries.map(({ id, time, name }) => <li key={id}>
       <time>{time}</time><span>{name}</span>
       <button type="button" aria-label={'Excluir agendamento de ' + name} onClick={() => onRemove(id)}>
@@ -86,7 +87,7 @@ function Schedule() {
     <main>
       <div className="agenda-heading">
         <div><h2>Sua agenda</h2><p>Consulte os atendimentos agendados por dia.</p></div>
-        <label>Filtrar por data<input type="date" value={date} onChange={(event) => setDate(event.target.value)} /></label>
+        <label><span className="sr-only">Filtrar por data</span><input type="date" value={date} onChange={(event) => setDate(event.target.value)} /></label>
       </div>
       {periods.map((period) => <PeriodList key={period.name} period={period} entries={grouped[period.name] ?? []} onRemove={remove} />)}
     </main>
